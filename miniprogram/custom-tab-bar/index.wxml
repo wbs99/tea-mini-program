@@ -1,0 +1,7 @@
+<van-tabbar active="{{ active }}" bind:change="onChange">
+  <van-tabbar-item wx:for="{{ list }}" wx:key="index" bind:change="onChange">
+    <image slot="icon" src="{{ item.image }}" class="image" mode="aspectFill"></image>
+    <image slot="icon-active" src="{{ item.selectedImage }}" class="image" mode="aspectFill"></image>
+    {{ item.text }}
+  </van-tabbar-item>
+</van-tabbar>

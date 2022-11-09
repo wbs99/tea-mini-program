@@ -1,10 +1,14 @@
-/**app.wxss**/
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
+view {
+  --primary-color: #d32d15;
+  --text-color: #787878;
+  --tabbar-height: 90rpx;
+  --tabbar-item-text-color: var(--text-color);
+  --tabbar-item-active-color: var(--primary-color);
+  --button-primary-background-color: var(--primary-color);
+  --button-primary-border-color: var(--primary-color);
+  --button-border-radius: 8rpx;
+  --radio-checked-icon-color: var(--primary-color);
+  --tag-padding: 5rpx 10rpx;
+  --tag-primary-color: var(--primary-color);
   box-sizing: border-box;
-} 
+}

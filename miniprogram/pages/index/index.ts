@@ -40,5 +40,8 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+  onShow() {
+    this.getTabBar().init()
+  },
 })
