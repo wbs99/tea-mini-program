@@ -1,1 +1,3 @@
-<view class="page">index page</view>
+<view class="page">
+  <my-swiper list="{{ swiperList }}"></my-swiper>
+</view>

@@ -26,7 +26,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "蜜雪冰城",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
   },
   "sitemapLocation": "sitemap.json"
 }
