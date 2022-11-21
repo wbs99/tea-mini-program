@@ -1,13 +1,12 @@
-const SWITCH_PATHS = [
+const tabBarList = [
   '/pages/index/index',
   '/pages/store/index',
   '/pages/order/index',
   '/pages/me/index'
 ]
 
-const isSwitchPath = (target: string) => {
-  return SWITCH_PATHS.some(item => target.includes(item))
-}
+const isSwitchPath = (target: string) => tabBarList.some(item => target.includes(item))
+
 
 export const to = (type: 'path' | 'webview', target: string) => {
   if (type === 'path') {

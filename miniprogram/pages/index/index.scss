@@ -1,0 +1,63 @@
+%cardStyle{
+  border-radius: 20rpx;
+  background-color: white;
+  box-shadow: 0 0 16px rgba($color: #000000, $alpha: 0.1);
+}
+.vip-card {
+  @extend %cardStyle;
+  z-index: 1;
+  margin-top: -40rpx;
+  width: 688rpx;
+  height: 176rpx;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+  padding: 0 24rpx;
+  &-left-icon {
+    width: 100rpx;
+    height: 100rpx;
+  }
+  &-meta {
+    flex: 1;    
+    .title {
+      font-weight: bold;
+      font-size: 28rpx;
+      margin-bottom: 14rpx;
+    }
+    .description {
+      font-size: 22rpx;
+      margin-top: 14rpx;
+      color: var(--text-color);
+    }
+
+  }
+  &-coin {
+    display: flex;
+    flex-direction: column;
+    image {
+      width: 114rpx;
+      height: 74rpx;
+    }
+    text {
+      margin-left: 20rpx;
+    }
+  }
+}
+.menu-card {
+  @extend %cardStyle;
+  width: 690rpx;
+  height: 340rpx;
+  margin-top: 40rpx;
+}
+.icon-navigations {
+  margin-top: 40rpx;
+  width: 690rpx;
+  display: flex;
+  justify-content: space-between;
+  &-item {
+    @extend %cardStyle;
+    width: 218rpx;
+    height: 160rpx;
+  }
+}
