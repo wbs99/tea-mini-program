@@ -1,7 +1,9 @@
 import { getSwiperListApi } from "../../apis/homePageApi"
+import { storeBehavior } from "../../behavior/storeBehavior"
 import { to } from "../../shared/navigator"
 
 Page({
+  behaviors: [storeBehavior],
   data: {
     swiperList: <SwiperData[]>[],
     iconNavigations: <SwiperData[]>[]

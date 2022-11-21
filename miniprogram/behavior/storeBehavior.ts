@@ -4,7 +4,7 @@ import { appStore } from "../store/index";
 export const storeBehavior = BehaviorWithStore({
   storeBindings: [
     {
-      namespace: 'app',
+      namespace: 'appStore',
       store: appStore,
       fields: ['token',],
       actions: ['fetchToken',]
