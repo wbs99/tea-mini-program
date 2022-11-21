@@ -1,6 +1,6 @@
-type httpMethod = "OPTIONS" | "GET" | "HEAD" | "POST" | "PUT" | "DELETE" | "TRACE" | "CONNECT" | undefined
-type RequestData = string | WechatMiniprogram.IAnyObject | ArrayBuffer
-type ErrorResponse = {
+export type httpMethod = "OPTIONS" | "GET" | "HEAD" | "POST" | "PUT" | "DELETE" | "TRACE" | "CONNECT" | undefined
+export type RequestData = string | WechatMiniprogram.IAnyObject | ArrayBuffer
+export type ErrorResponse = {
   code: number;
   message: string;
 }
