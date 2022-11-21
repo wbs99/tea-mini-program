@@ -6,9 +6,7 @@ const SWITCH_PATHS = [
 ]
 
 const isSwitchPath = (target: string) => {
-  return SWITCH_PATHS.some(item => {
-    return target.includes(item)
-  })
+  return SWITCH_PATHS.some(item => target.includes(item))
 }
 
 export const to = (type: 'path' | 'webview', target: string) => {

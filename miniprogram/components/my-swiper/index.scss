@@ -3,7 +3,7 @@
   .swiper {
     width: 100vw;
     height: 632rpx;
-    &__item {
+    &-item {
       border-radius: 0 0 20rpx 20rpx;
       overflow: hidden;
       image {
@@ -17,14 +17,14 @@
     left: 40rpx;
     bottom: 60rpx;
     display: flex;
-    &__item {
+    &-item {
       width: 10rpx;
       height: 10rpx;
       border-radius: 5rpx;
       margin-right: 6rpx;
       background-color: rgba($color: #fff, $alpha: 0.3);
       transition: 0.3s;
-      &--active {
+      &-active {
         background-color: #fff;
         width: 30rpx;
       }
