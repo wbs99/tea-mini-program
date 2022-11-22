@@ -1,18 +1,19 @@
+import { fetchMeApi } from './../apis/homePageApi';
 import { action, observable } from "mobx-miniprogram";
-import { fetchToken } from "../apis/homePageApi";
+import { fetchTokenApi } from "../apis/homePageApi";
 
 const TOKEN_STORAGE_KEY = 'token'
+const ME_STORAGE_KEY = 'me'
 
 export const appStore = observable({
   token: <string>wx.getStorageSync(TOKEN_STORAGE_KEY),
+  me: <UserType | null>wx.getStorageSync(ME_STORAGE_KEY) || null,
 
   // 这里只能使用 function 形式，不能使用箭头函数
   fetchToken: action(async function (e: { detail: { code: string } }) {
-    console.log('你好啊')
-    const token = await fetchToken(e.detail.code)
-    console.log('token')
-    console.log(token)
+    const token = await fetchTokenApi(e.detail.code)
     appStore.setToken(token)
+    appStore.fetchMe()
     wx.showToast({
       title: '登录成功',
       icon: 'success'
@@ -24,5 +25,21 @@ export const appStore = observable({
   setToken: action(function (token: string) {
     appStore.token = token
     wx.setStorageSync(TOKEN_STORAGE_KEY, token)
-  })
+  }),
+
+  fetchMe: action(async function () {
+    const me = await fetchMeApi()
+    appStore.setMe(me)
+  }),
+  setMe: action(function (me: UserType) {
+    appStore.me = me
+    wx.setStorageSync(ME_STORAGE_KEY, me)
+  }),
+
+  logout: action(function () {
+    appStore.token = ''
+    appStore.me = null
+    wx.setStorageSync(TOKEN_STORAGE_KEY, '')
+    wx.setStorageSync(ME_STORAGE_KEY, null)
+  }),
 })
