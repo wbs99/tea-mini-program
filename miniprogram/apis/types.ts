@@ -11,3 +11,9 @@ type UserType = {
   gender?: Gender,
   birthDay?: string;
 }
+
+type UserUpdateRequest = {
+  mobile?: number;
+  gender?: Gender,
+  birthDay?: string;
+}

@@ -1,4 +1,4 @@
-import { fetchMeApi } from './../apis/homePageApi';
+import { fetchMeApi, updateMeApi } from './../apis/homePageApi';
 import { action, observable } from "mobx-miniprogram";
 import { fetchTokenApi } from "../apis/homePageApi";
 
@@ -48,4 +48,9 @@ export const appStore = observable({
   switchTabBar: action(function (value: number) {
     appStore.activeTabBar = value
   }),
+
+  updateMe: action(async function (userUpdateRequest: UserUpdateRequest) {
+    const updatedUser = await updateMeApi(userUpdateRequest)
+    appStore.setMe(updatedUser)
+  })
 })

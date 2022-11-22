@@ -1,4 +1,5 @@
 import { storeBehavior } from "../../behavior/storeBehavior"
+import { appStore } from "../../store/index"
 
 Page({
   behaviors: [storeBehavior],
@@ -34,4 +35,12 @@ Page({
   onShow() {
     this.getTabBar().init()
   },
+  goToSettings() {
+    if (appStore.me) {
+      wx.navigateTo({ url: '/pages/me/settings' })
+    }
+  },
+  goToLogin() {
+    wx.navigateTo({ url: '/pages/login/index' })
+  }
 })
