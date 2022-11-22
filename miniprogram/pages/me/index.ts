@@ -1,4 +1,7 @@
+import { storeBehavior } from "../../behavior/storeBehavior"
+
 Page({
+  behaviors: [storeBehavior],
 
   data: {
     paddingTop: 0,

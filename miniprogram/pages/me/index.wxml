@@ -1,10 +1,11 @@
+<wxs src="../../wxs/utils.wxs" module="utils" />
 <view class="page" style="padding-top: {{ paddingTop }}px;">
   <view class="user-section">
     <image class="user-section-avatar" src="../../assets/images/logo.JPG" bindtap="goToSettings"></image>
-    <view wx:if="{{ app.currentUser }}" bindtap="goToSettings" class="user-section-info">
-      {{ utils.desensize(app.currentUser.mobile) }}
+    <view wx:if="{{ appStore.me }}" bindtap="goToSettings" class="user-section-info">
+      {{ utils.desensize(appStore.me.mobile) }}
     </view>
-    <block wx:if="{{ !app.currentUser }}">
+    <block wx:if="{{ !appStore.me }}">
       <view class="user-section-info">登录获得更多会员权益</view>
       <van-button type="primary" size="small" bindtap="goToLogin">授权登录</van-button>
     </block>
