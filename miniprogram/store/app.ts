@@ -8,6 +8,8 @@ const ME_STORAGE_KEY = 'me'
 export const appStore = observable({
   token: <string>wx.getStorageSync(TOKEN_STORAGE_KEY),
   me: <UserType | null>wx.getStorageSync(ME_STORAGE_KEY) || null,
+  activeTabBar: 0,
+
 
   // 这里只能使用 function 形式，不能使用箭头函数
   fetchToken: action(async function (e: { detail: { code: string } }) {
@@ -41,5 +43,9 @@ export const appStore = observable({
     appStore.me = null
     wx.setStorageSync(TOKEN_STORAGE_KEY, '')
     wx.setStorageSync(ME_STORAGE_KEY, null)
+  }),
+
+  switchTabBar: action(function (value: number) {
+    appStore.activeTabBar = value
   }),
 })

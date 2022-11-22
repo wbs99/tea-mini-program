@@ -6,8 +6,8 @@ export const storeBehavior = BehaviorWithStore({
     {
       namespace: 'appStore',
       store: appStore,
-      fields: ['token', 'me'],
-      actions: ['fetchToken', 'logout']
+      fields: ['token', 'me', 'activeTabBar'],
+      actions: ['fetchToken', 'logout', 'switchTabBar']
     }
   ]
 })

@@ -1,4 +1,8 @@
+import { storeBehavior } from "../behavior/storeBehavior";
+import { appStore } from "../store/index";
+
 Component({
+  behaviors: [storeBehavior],
   data: {
     active: 0,
     list: [
@@ -30,7 +34,7 @@ Component({
   },
   methods: {
     onChange(event: { detail: number }) {
-      this.setData({ active: event.detail })
+      appStore.switchTabBar(event.detail)
       wx.switchTab({ url: this.data.list[event.detail].path });
     },
     init() {
