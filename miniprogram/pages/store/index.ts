@@ -4,7 +4,8 @@ import { fetchStoreListApi } from './../../apis/store';
 import { MapMarker } from './types';
 const computedBehavior = require('miniprogram-computed').behavior
 import QQMapWX from "@jonny1994/qqmap-wx-jssdk";
-
+const mapKey = "TKGBZ-FEQL4-3PKUL-XER3K-774R2-3FBZ6"
+const chooseLocation = requirePlugin('chooseLocation');
 
 Page({
   behaviors: [computedBehavior],
@@ -41,7 +42,7 @@ Page({
   },
   initMapSdk() {
     this.mapSdk = new QQMapWX({
-      key: "TKGBZ-FEQL4-3PKUL-XER3K-774R2-3FBZ6",
+      key: mapKey,
     });
   },
   // 根据经纬度计算起点终点距离
@@ -61,8 +62,18 @@ Page({
       }
     })
   },
+  goToChooseLocation() {
+    const referer = '王本爽';
+    const location = JSON.stringify(this.data.currentLocation);
+    wx.navigateTo({
+      url: `plugin://chooseLocation/index?key=${mapKey}&referer=${referer}&location=${location}`
+    });
+  },
   async fetchStoreList() {
-    const { paging, data } = await fetchStoreListApi()
+    const { paging, data } = await fetchStoreListApi({
+      ...this.data.paging,
+      ...this.data.currentLocation
+    })
     data.length && this.calculateDistanceAndSetStoreList(data)
     this.setData({
       paging,
@@ -83,6 +94,16 @@ Page({
     this.fetchStoreList()
   },
   onShow() {
+    const location = chooseLocation.getLocation();
+    if (location) {
+      this.setData({
+        currentLocation: { latitude: location.latitude, longitude: location.longitude }
+      })
+      this.fetchStoreList()
+    }
     this.getTabBar().init()
   },
+  onUnload() {
+    chooseLocation.setLocation(null);
+  }
 })
