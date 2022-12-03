@@ -27,7 +27,7 @@
         <view class="distance">距离{{ item.distance }}km</view>
         <view class="aciton-icon-list">
           <van-icon custom-class="item" name="location" bindtap='goToLocation' data-location='{{item.location}}' />
-          <van-icon custom-class="item" name="phone" />
+          <van-icon custom-class="item" name="phone" bindtap='onCallPhone' data-phone='{{item.phone}}' />
         </view>
       </view>
     </view>

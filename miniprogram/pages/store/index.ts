@@ -102,11 +102,15 @@ Page({
   },
   // 点击门店列表页面的地址 icon 调用微信内置导航
   goToLocation(event: DataSetEvent<{ location: Location }>) {
-    console.log(event)
     const { latitude, longitude } = event.currentTarget.dataset.location
     wx.openLocation({
       latitude,
       longitude,
+    })
+  },
+  onCallPhone(event: DataSetEvent<{ phone: string }>) {
+    wx.makePhoneCall({
+      phoneNumber: event.currentTarget.dataset.phone
     })
   },
   onShow() {
