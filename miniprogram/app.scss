@@ -21,6 +21,7 @@ page {
   display: flex;
   flex-direction: column;
   align-items: center;
+  // 设置底部 tabBar 安全距离
   padding-bottom: calc(var(--tabbar-height) + env(safe-area-inset-bottom));
 }
 .loading {

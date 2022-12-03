@@ -24,6 +24,17 @@
       }
     ]
   },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于给您匹配最佳门店"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation"
+  ],
+  "usingComponents": {
+    "van-loading": "@vant/weapp/loading/index"
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

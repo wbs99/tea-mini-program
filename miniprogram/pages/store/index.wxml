@@ -31,7 +31,7 @@
         </view>
       </view>
     </view>
-    <van-loading wx:for="{{ !storeList.length }}" vertical custom-class="loading" type="spinner">
+    <van-loading wx:if="{{ !storeList.length }}" vertical custom-class="loading" type="spinner">
       加载中...
     </van-loading>
   </view>

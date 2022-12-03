@@ -31,7 +31,7 @@ export type ListResult<T> = {
   data: Array<T>
 }
 
-type Location = {
+export type Location = {
   latitude: number;
   longitude: number;
 }
