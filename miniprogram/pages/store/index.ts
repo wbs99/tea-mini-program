@@ -70,6 +70,7 @@ Page({
       url: `plugin://chooseLocation/index?key=${mapKey}&referer=${referer}&location=${location}`
     });
   },
+  // 获取店铺数据
   async fetchStoreList() {
     const { paging, data } = await fetchStoreListApi({
       ...this.data.paging,
@@ -81,6 +82,7 @@ Page({
       storeList: data
     })
   },
+  // 获取当前经纬度
   async fetchCurrentLocation() {
     const { latitude, longitude } = await wx.getLocation({ type: 'wgs84' })
     this.setData({
@@ -88,11 +90,6 @@ Page({
         latitude, longitude
       }
     })
-  },
-  async onLoad() {
-    this.initMapSdk()
-    await this.fetchCurrentLocation()
-    this.fetchStoreList()
   },
   // 显示或隐藏地图
   toggleMap() {
@@ -118,6 +115,11 @@ Page({
     wx.makePhoneCall({
       phoneNumber: event.currentTarget.dataset.phone
     })
+  },
+  async onLoad() {
+    this.initMapSdk()
+    await this.fetchCurrentLocation()
+    this.fetchStoreList()
   },
   onShow() {
     const location = chooseLocation.getLocation();
