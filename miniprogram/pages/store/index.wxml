@@ -7,10 +7,10 @@
     <van-search bindtap="goToChooseLocation" custom-class="search" value="{{ value }}" placeholder="搜索门店" shape="round" />
   </view>
   <view class="map-section">
-    <map class="map" show-location latitude="{{ currentLocation.latitude }}" longitude="{{ currentLocation.longitude }}" markers="{{ markers }}"></map>
-    <view class="toggle-map">
-      收起地图
-      <van-icon style="margin-left: 10rpx;" name="arrow-up" />
+    <map class="map  {{ mapVisible || 'map-hidden' }}" show-location latitude="{{ currentLocation.latitude }}" longitude="{{ currentLocation.longitude }}" markers="{{ markers }}"></map>
+    <view class="toggle-map" bindtap="toggleMap">
+      {{ mapVisible ? '收起地图' : '展开地图' }}
+      <van-icon style="margin-left: 10rpx;" name="{{ mapVisible ? 'arrow-up' : 'arrow-down' }}" />
     </view>
   </view>
   <view class="store-list-section">
@@ -26,7 +26,7 @@
       <view class="store-card-actions">
         <view class="distance">距离{{ item.distance }}km</view>
         <view class="aciton-icon-list">
-          <van-icon custom-class="item" name="location" />
+          <van-icon custom-class="item" name="location" bindtap='goToLocation' data-location='{{item.location}}' />
           <van-icon custom-class="item" name="phone" />
         </view>
       </view>

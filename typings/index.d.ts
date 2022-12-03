@@ -7,4 +7,8 @@ interface IAppOption {
   userInfoReadyCallback?: WechatMiniprogram.GetUserInfoSuccessCallback,
 }
 
-
+type DataSetEvent<T> = {
+  currentTarget: {
+    dataset: T
+  }
+}

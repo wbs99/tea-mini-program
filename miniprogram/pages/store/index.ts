@@ -23,7 +23,8 @@ Page({
       longitude: 0
     },
     markers: <MapMarker[]>[],
-    distance: 0
+    distance: 0,
+    mapVisible: true
   },
   computed: {
     markers(data: { storeList: Store[] }): MapMarker[] {
@@ -92,6 +93,21 @@ Page({
     this.initMapSdk()
     await this.fetchCurrentLocation()
     this.fetchStoreList()
+  },
+  // 显示或隐藏地图
+  toggleMap() {
+    this.setData({
+      mapVisible: !this.data.mapVisible
+    })
+  },
+  // 点击门店列表页面的地址 icon 调用微信内置导航
+  goToLocation(event: DataSetEvent<{ location: Location }>) {
+    console.log(event)
+    const { latitude, longitude } = event.currentTarget.dataset.location
+    wx.openLocation({
+      latitude,
+      longitude,
+    })
   },
   onShow() {
     const location = chooseLocation.getLocation();
