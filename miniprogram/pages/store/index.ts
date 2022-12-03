@@ -108,6 +108,12 @@ Page({
       longitude,
     })
   },
+  // 点击地图的右下角小图标回归到当前位置
+  goToCurrentLocation() {
+    wx.createSelectorQuery().select('#store-map').context(res => {
+      res.context.moveToLocation()
+    }).exec()
+  },
   onCallPhone(event: DataSetEvent<{ phone: string }>) {
     wx.makePhoneCall({
       phoneNumber: event.currentTarget.dataset.phone
