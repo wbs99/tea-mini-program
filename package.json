@@ -7,6 +7,7 @@
   "author": "",
   "license": "",
   "dependencies": {
+    "@jonny1994/qqmap-wx-jssdk": "1.4.0",
     "@vant/weapp": "1.10.6",
     "miniprogram-computed": "4.4.0",
     "mobx-miniprogram": "4.13.2",
