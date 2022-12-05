@@ -4,11 +4,28 @@
       <van-tab title="附近门店"></van-tab>
       <van-tab title="常去门店"></van-tab>
     </van-tabs>
-    <van-search bindtap="goToChooseLocation" custom-class="search" value="{{ value }}" placeholder="搜索门店" shape="round" />
+    <van-search
+      bindtap="goToChooseLocation"
+      custom-class="search"
+      value="{{ value }}"
+      placeholder="搜索门店"
+      shape="round"
+    />
   </view>
   <view class="map-section">
-    <map id='store-map' class="map  {{ mapVisible || 'map-hidden' }}" show-location latitude="{{ currentLocation.latitude }}" longitude="{{ currentLocation.longitude }}" markers="{{ markers }}">
-      <image class="map-current-location" src='../../assets/images/current.png' bindtap="goToCurrentLocation"></image>
+    <map
+      id="store-map"
+      class="map  {{ mapVisible || 'map-hidden' }}"
+      show-location
+      latitude="{{ currentLocation.latitude }}"
+      longitude="{{ currentLocation.longitude }}"
+      markers="{{ markers }}"
+    >
+      <image
+        class="map-current-location"
+        src="../../assets/images/current.png"
+        bindtap="goToCurrentLocation"
+      ></image>
     </map>
     <view class="toggle-map" bindtap="toggleMap">
       {{ mapVisible ? '收起地图' : '展开地图' }}
@@ -16,20 +33,36 @@
     </view>
   </view>
   <view class="store-list-section">
-    <view wx:for="{{ storeList }}" wx:key="unique" class="store-card">
+    <view
+      bindtap="selectStore"
+      data-store="{{item}}"
+      wx:for="{{ storeList }}"
+      wx:key="unique"
+      class="store-card"
+    >
       <view class="store-card-meta">
         <view class="name">{{ item.name }}</view>
         <view class="address">{{ item.address }}</view>
         <view class="opening-time">
           营业时间: {{ item.openingTime.start }} ~ {{ item.openingTime.end }}
         </view>
-        <van-tag type="primary">{{  storeStatusMap[item.status] }}</van-tag>
+        <van-tag type="primary">{{ storeStatusMap[item.status] }}</van-tag>
       </view>
       <view class="store-card-actions">
         <view class="distance">距离{{ item.distance }}km</view>
         <view class="aciton-icon-list">
-          <van-icon custom-class="item" name="location" bindtap='goToLocation' data-location='{{item.location}}' />
-          <van-icon custom-class="item" name="phone" bindtap='onCallPhone' data-phone='{{item.phone}}' />
+          <van-icon
+            custom-class="item"
+            name="location"
+            bindtap="goToLocation"
+            data-location="{{item.location}}"
+          />
+          <van-icon
+            custom-class="item"
+            name="phone"
+            bindtap="onCallPhone"
+            data-phone="{{item.phone}}"
+          />
         </view>
       </view>
     </view>
@@ -37,4 +70,9 @@
       加载中...
     </van-loading>
   </view>
+  <my-store-popup
+    store="{{selectedStore}}"
+    markers="{{ markers }}"
+    bind:close="onStorePopupClose"
+  />
 </view>

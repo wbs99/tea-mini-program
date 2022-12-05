@@ -30,7 +30,8 @@ Component({
         selectedImage: '../assets/images/tabbar/me-selected.png',
         path: '/pages/me/index'
       }
-    ]
+    ],
+    show: true
   },
   methods: {
     onChange(event: { detail: number }) {
@@ -43,6 +44,16 @@ Component({
       this.setData(
         { active: this.data.list.findIndex(item => item.path === `/${currentPage.route}`) }
       )
+    },
+    show() {
+      this.setData({
+        show: true
+      })
+    },
+    hide() {
+      this.setData({
+        show: false
+      })
     }
   }
 })

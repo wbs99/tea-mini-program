@@ -24,7 +24,8 @@ Page({
     },
     markers: <MapMarker[]>[],
     distance: 0,
-    mapVisible: true
+    mapVisible: true,
+    selectedStore: <Store | null>null
   },
   computed: {
     markers(data: { storeList: Store[] }): MapMarker[] {
@@ -133,5 +134,17 @@ Page({
   },
   onUnload() {
     chooseLocation.setLocation(null);
+  },
+  // 店铺点击
+  selectStore(event: DataSetEvent<{ store: Store }>) {
+    this.setData({
+      selectedStore: event.currentTarget.dataset.store
+    })
+  },
+  // 关闭点击店铺之后的弹窗
+  onStorePopupClose() {
+    this.setData({
+      selectedStore: null
+    })
   }
 })
