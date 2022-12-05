@@ -18,7 +18,7 @@
         longitude="{{ store.location.longitude }}"
         markers="{{markers}}"
       ></map>
-      <van-button type="primary" block>进入菜单</van-button>
+      <van-button type="primary" block bindtap="toMenuPage">进入菜单</van-button>
     </view>
   </view>
 </van-popup>

@@ -22,6 +22,11 @@ Component({
   methods: {
     onClose() {
       this.triggerEvent('close')
+    },
+    toMenuPage() {
+      wx.navigateTo({
+        url: '/pages/store/menu'
+      })
     }
   }
 })
