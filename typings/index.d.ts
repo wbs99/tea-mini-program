@@ -12,3 +12,19 @@ type DataSetEvent<T> = {
     dataset: T
   }
 }
+
+type CartItem = {
+  id: string; // id: pruductId +attId+ ...attrValues
+  productId: string;
+  productName: string;
+  attributes: CartItemAttribute[],
+  productPrice: number;
+  total: number;
+}
+
+type CartItemAttribute = {
+  id: string;
+  key: string;
+  value: string;
+  price: number;
+}

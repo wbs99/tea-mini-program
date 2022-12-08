@@ -29,4 +29,5 @@
     wx:if="{{menuList.length}}"
     menuList="{{ menuList }}"
   ></my-store-menu>
+  <my-cart></my-cart>
 </view>

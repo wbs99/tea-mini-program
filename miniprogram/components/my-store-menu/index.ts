@@ -1,3 +1,5 @@
+import { cartStore } from "../../store/cart"
+
 Component({
   properties: {
     menuList: {
@@ -36,6 +38,32 @@ Component({
       index !== -1 
       && index !== this.data.selectedSectionIndex 
       && this.setData({selectedSectionIndex: index})
-    }
+    },
+
+    // 加入购物车
+    addToCart(){
+      const item: CartItem = {
+        id: '111',
+        productId: '11111',
+        productName: '大王奇异果',
+        productPrice: 9,
+        total: 1,
+        attributes: [
+          {
+            id: '12',
+            key: 'test',
+            value: '加奶盖',
+            price: 2
+          },
+           {
+            id: '12',
+            key: 'test',
+            value: '加奶昔',
+            price: 1
+          }
+        ]
+      }
+      cartStore.addItem(item)
+    },
   }
 })
