@@ -1,6 +1,7 @@
 import { fetchMeApi, updateMeApi } from './../apis/homePageApi';
 import { action, observable } from "mobx-miniprogram";
 import { fetchTokenApi } from "../apis/homePageApi";
+import { UserType, UserUpdateRequest } from '../apis/types';
 
 const TOKEN_STORAGE_KEY = 'token'
 const ME_STORAGE_KEY = 'me'

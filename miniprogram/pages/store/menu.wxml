@@ -24,4 +24,9 @@
     </view>
     <van-button type="primary" size="small">自提</van-button>
   </view>
+  <my-store-menu
+    class="store-menu"
+    wx:if="{{menuList.length}}"
+    menuList="{{ menuList }}"
+  ></my-store-menu>
 </view>

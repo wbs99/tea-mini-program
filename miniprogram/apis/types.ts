@@ -1,20 +1,20 @@
 import { StoreStatus } from "../enums/StoreStatus";
 
-type SwiperListType = {
+export type SwiperListType = {
   swiper: SwiperData[],
   iconNavigations: SwiperData[]
 }
 
 type Gender = 'MALE' | 'FEMALE' | 'UNKNOWN' | null
 
-type UserType = {
+export type UserType = {
   id: string;
   mobile: number;
   gender?: Gender,
   birthDay?: string;
 }
 
-type UserUpdateRequest = {
+export type UserUpdateRequest = {
   mobile?: number;
   gender?: Gender,
   birthDay?: string;
