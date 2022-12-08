@@ -30,4 +30,5 @@
     menuList="{{ menuList }}"
   ></my-store-menu>
   <my-cart></my-cart>
+  <my-product-card></my-product-card>
 </view>
